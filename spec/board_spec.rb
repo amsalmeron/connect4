@@ -6,9 +6,7 @@ RSpec.describe Board do
 
   it 'create board' do
 
-    board = Board.new
-
-    expect{board.create_board}.to output(
+    expect{Board.new}.to output(
       <<~EXPECTED
       Welcome to Connect Four!
       ABCDEFG
