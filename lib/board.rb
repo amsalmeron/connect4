@@ -6,7 +6,7 @@ class Board
 
   def initialize
 
-    puts "Welcome to Connect Four!\nABCDEFG\n.......\n.......\n.......\n.......\n.......\n......."
+    puts "ABCDEFG\n.......\n.......\n.......\n.......\n.......\n......."
 
   end
 

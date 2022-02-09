@@ -8,7 +8,6 @@ RSpec.describe Board do
 
     expect{Board.new}.to output(
       <<~EXPECTED
-      Welcome to Connect Four!
       ABCDEFG
       .......
       .......
