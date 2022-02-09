@@ -1,14 +1,16 @@
 require 'pry'
 require './lib/board.rb'
+require './lib/player.rb'
 
 
-RSpec.describe Board do
+RSpec.describe Player do
 
-  it 'create board' do
+  it 'can place first piece' do
 
-    expect{Board.new}.to output(
+    board = Board.new
+    human = Player.new
 
-
+    expect{board}.to output(
       <<~EXPECTED
       ["A", "B", "C", "D", "E", "F", "G"]
       [".", ".", ".", ".", ".", ".", "."]
@@ -16,9 +18,10 @@ RSpec.describe Board do
       [".", ".", ".", ".", ".", ".", "."]
       [".", ".", ".", ".", ".", ".", "."]
       [".", ".", ".", ".", ".", ".", "."]
-      [".", ".", ".", ".", ".", ".", "."]
+      ["X", ".", ".", ".", ".", ".", "."]
       EXPECTED
     ).to_stdout
+
 
   end
 
