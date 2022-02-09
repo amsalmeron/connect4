@@ -2,12 +2,9 @@ require 'pry'
 
 
 class Board
-
+  attr_reader :board
   def initialize
-
-    @board = board
-
-    board = {
+    @board = {
             :row0 => ['A','B','C','D','E','F','G'],
             :row1 => [".",".",".",".",".",".","."],
             :row2 => [".",".",".",".",".",".","."],
@@ -16,8 +13,6 @@ class Board
             :row5 => [".",".",".",".",".",".","."],
             :row6 => [".",".",".",".",".",".","."]
           }
-
-
 
             p board[:row0]
             p board[:row1]

@@ -12,6 +12,5 @@ start = 'start'
 
   if start == 'start'
     board = Board.new
-  else start != 'start'
-    puts 'Try again...'
+    puts "Select column A-G"
   end
