@@ -4,7 +4,6 @@ require 'pry'
 class Board
   attr_reader :board
   def initialize
-
     @board = {
             :row0 => ['A','B','C','D','E','F','G'],
             :row1 => [".",".",".",".",".",".","."],
