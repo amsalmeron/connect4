@@ -8,7 +8,12 @@ RSpec.describe Player do
   it 'can place first piece' do
 
     board = Board.new
-    human = Player.new
+    player = Player.new(board)
+    player.move
+
+    # binding.pry
+
+
 
     expect{board}.to output(
       <<~EXPECTED
@@ -21,9 +26,6 @@ RSpec.describe Player do
       ["X", ".", ".", ".", ".", ".", "."]
       EXPECTED
     ).to_stdout
-
-
   end
-
 
 end
