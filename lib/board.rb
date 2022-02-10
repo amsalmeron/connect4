@@ -16,12 +16,10 @@ class Board
   end
 
   def render
-    p @columns.keys.join
+    puts @columns.keys.join
     rows = @columns.values.transpose
     rows.each do |row|
-      p row.join
+      puts row.join
     end
   end
 end
-b = Board.new
-b.render
