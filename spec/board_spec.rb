@@ -4,23 +4,28 @@ require './lib/board.rb'
 
 RSpec.describe Board do
 
-  it 'create board' do
-
-    expect{Board.new}.to output(
-
-
-      <<~EXPECTED
-      ["A", "B", "C", "D", "E", "F", "G"]
-      [".", ".", ".", ".", ".", ".", "."]
-      [".", ".", ".", ".", ".", ".", "."]
-      [".", ".", ".", ".", ".", ".", "."]
-      [".", ".", ".", ".", ".", ".", "."]
-      [".", ".", ".", ".", ".", ".", "."]
-      [".", ".", ".", ".", ".", ".", "."]
-      EXPECTED
-    ).to_stdout
-
+  before(:each) do
+    @board = Board.new
   end
 
+  it 'create board' do
+    expect(@board).to be_an_instance_of(Board)
+  end
+
+  it 'has columns' do
+    expect(@board.columns).to eq({
+      "A" => [".", ".", ".", ".", ".", "."],
+      "B" => [".", ".", ".", ".", ".", "."],
+      "C" => [".", ".", ".", ".", ".", "."],
+      "D" => [".", ".", ".", ".", ".", "."],
+      "E" => [".", ".", ".", ".", ".", "."],
+      "F" => [".", ".", ".", ".", ".", "."],
+      "G" => [".", ".", ".", ".", ".", "."]
+      })
+  end
+
+  it 'renders' do
+    expect(@board.render).to eq("")
+  end
 
 end

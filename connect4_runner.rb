@@ -13,4 +13,5 @@ start = 'start'
   if start == 'start'
     board = Board.new
     puts "Select column A-G"
+    
   end

@@ -5,7 +5,7 @@ require './lib/player.rb'
 
 RSpec.describe Player do
 
-  it 'can place first piece' do
+  xit 'can place first piece' do
 
     board = Board.new.board
     #binding.pry
