@@ -12,5 +12,7 @@ start = 'start'
 
   if start == 'start'
     board = Board.new
-    puts "Select column A-G"
+    board.render
   end
+
+  turn = Turn.new
