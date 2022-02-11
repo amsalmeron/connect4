@@ -29,12 +29,6 @@ class Turn
 
     @input = $stdin.gets.chomp
 
-    # if @input != "A" || @input != "B" || @input != "C" || @input != "D" || @input != "E" || @input != "F" || @input != "G"
-    #
-    #   puts "Invalid input. Try again."
-    #
-    # else
-
       if @input == "A"
 
         if @board.columns["A"][-1] == "."
@@ -245,8 +239,12 @@ class Turn
             puts "Column G is full."
 
         end
-      # end
-    end
+
+      else
+
+        puts "Invalid input. Try again."
+
+      end
 
   end
 
