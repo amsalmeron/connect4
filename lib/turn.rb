@@ -248,4 +248,39 @@ class Turn
 
   end
 
+  def computer
+
+    loop do
+    comp_move = @board.columns.to_a.sample(1).to_a
+    comp_move = comp_move[0][1]
+
+      if comp_move[-1] == "."
+        comp_move[-1] = "O"
+        @board.render
+        break
+      elsif comp_move[-2] == "."
+        comp_move[-2] = "O"
+        @board.render
+        break
+      elsif comp_move[-3] == "."
+        comp_move[-3] = "O"
+        @board.render
+        break
+      elsif comp_move[-4] == "."
+        comp_move[-4] = "O"
+        @board.render
+        break
+      elsif comp_move[-5] == "."
+        comp_move[-5] = "O"
+        @board.render
+        break
+      elsif comp_move[-6] == "."
+        comp_move[-6] = "O"
+        @board.render
+        break
+      end
+    end
+
+  end
+
 end
