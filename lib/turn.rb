@@ -283,4 +283,10 @@ class Turn
 
   end
 
+  # def check_board
+  #   binding.pry
+  #   if @board.columns["A"].each_cons(4).find { |i| i = "X"}
+  # 
+  # end
+
 end
