@@ -18,6 +18,8 @@ start = 'start'
 
 @turn = Turn.new(@board)
 
+
+
 @turn.prompt
 @turn.place_piece
 @turn.computer
@@ -30,4 +32,17 @@ start = 'start'
 @turn.prompt
 @turn.place_piece
 @turn.computer
-#@turn.check_board
+@turn.prompt
+@turn.place_piece
+@turn.computer
+@turn.prompt
+@turn.place_piece
+@turn.computer
+@turn.prompt
+@turn.place_piece
+@turn.computer
+@turn.prompt
+@turn.place_piece
+@turn.computer
+
+#loop until board is full or winner is determined
