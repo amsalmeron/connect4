@@ -1,5 +1,7 @@
 require 'pry'
 require './lib/board.rb'
+require './lib/turn.rb'
+
 
 
 
@@ -9,10 +11,23 @@ puts "------------------------"
 
 #start = gets.chomp
 start = 'start'
-
   if start == 'start'
-    board = Board.new
-    board.render
+    @board = Board.new
+    @board.render
   end
 
-  turn = Turn.new
+@turn = Turn.new(@board)
+
+@turn.prompt
+@turn.place_piece
+@turn.computer
+@turn.prompt
+@turn.place_piece
+@turn.computer
+@turn.prompt
+@turn.place_piece
+@turn.computer
+@turn.prompt
+@turn.place_piece
+@turn.computer
+#@turn.check_board
