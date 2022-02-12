@@ -30,7 +30,7 @@ end
 #
 #
 #
-# Iteration 3
+# Iteration 3 Pseudocode
 #
 # @turn.check_board
 # Convert each column to its own string

@@ -12,38 +12,11 @@ RSpec.describe Turn do
     expect(@turn).to be_an_instance_of(Turn)
   end
 
-  # it 'can create prompt' do
-  #   expect(@turn.prompt).to eq("A") .or eq("B")
-  #   #expect(@turn.input).to eq()
-  # end
-  #
+  it "can create prompt" do
+    expect { @turn.prompt }.to output("Select column A-G: \n").to_stdout
+  end
 
-  # it 'can place player piece in column A' do
-  #
-  #   expect(@turn.prompt).to eq("A")
-  #
-  #
-  #   expect{@turn.place_piece}.to output(
-  #     <<~EXPECTED
-  #     ABCDEFG
-  #     .......
-  #     .......
-  #     .......
-  #     .......
-  #     .......
-  #     X......
-  #     EXPECTED
-  #   ).to_stdout
-  # end
-  # it 'check player move valid' do
-  #   binding.pry
-  #   expect(@turn.check_input).to eq(true)
-  #
-  # end
-
-  it "can place player piece in all columns" do
-    expect(@turn.prompt).to eq("A").or eq("B").or eq("C").or eq("D").or eq("E").or eq("F").or eq("G")
-
+  xit "can place player piece in all columns" do
     6.times do
       @turn.place_piece
     end
@@ -60,27 +33,46 @@ RSpec.describe Turn do
       EXPECTED
     ).to_stdout
   end
-
-    expect(@turn.prompt).to eq("A").or eq("B").or eq("C").or eq("D").or eq("E").or eq("F").or eq("G")
-    expect { @turn.place_piece }.to output(
-      <<~EXPECTED
-        ABCDEFG
-        .......
-        .......
-        .......
-        .......
-        X......
-        X......
-      EXPECTED
-    ).to_stdout
+  # still working on this...
+  xit "computer places piece" do
+    expect(@turn.computer).to eq(@board.columns.values.include?("O"))
+  end
+  # still working
+  xit "player and computer can fill board" do
+    20.times do
+      @turn.prompt
+      @turn.place_piece
+      @turn.computer
+    end
+  end
+  # still working
+  xit "can detect invalid column selection" do
+    expect { @turn.place_piece }.to output("Invalid input. Try again.\n").to_stdout
+  end
+  # still working
+  xit "can detect full column" do
+    6.times do
+      @turn.place_piece
+    end
+    expect { @turn.place_piece }.to output("Column #{@input} is full.\n").to_stdout
   end
 
-  it "can convert each column to its own string"
-  it "can check column strings for 'XXXX' or 'OOOO'"
-  it "can convert each row to its own string"
-  it "can check row strings for 'XXXX' or 'OOOO'"
-  it "can convert upper left to lower right diagonal (diagonal_1) win combos to their own strings"
-  it "can check diagonal_1 strings for 'XXXX' or 'OOOO'"
-  it "can convert lower left to upper right diagonal (diagonal_2) win combos to their own strings"
-  it "can check diagonal_2 strings for 'XXXX' or 'OOOO'"
+  it "computer detects full column and adjusts" do
+    21.times do
+      @turn.prompt
+      @turn.place_piece
+      @turn.computer
+    end
+    expect(@board.columns.values.include?(".")).to be false
+  end
+
+  # Tests for Iteration 3
+  # it "can convert each column to its own string"
+  # it "can check column strings for 'XXXX' or 'OOOO'"
+  # it "can convert each row to its own string"
+  # it "can check row strings for 'XXXX' or 'OOOO'"
+  # it "can convert upper left to lower right diagonal (diagonal_1) win combos to their own strings"
+  # it "can check diagonal_1 strings for 'XXXX' or 'OOOO'"
+  # it "can convert lower left to upper right diagonal (diagonal_2) win combos to their own strings"
+  # it "can check diagonal_2 strings for 'XXXX' or 'OOOO'"
 end
