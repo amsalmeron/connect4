@@ -19,30 +19,9 @@ start = 'start'
 @turn = Turn.new(@board)
 
 
-
-@turn.prompt
-@turn.place_piece
-@turn.computer
-@turn.prompt
-@turn.place_piece
-@turn.computer
-@turn.prompt
-@turn.place_piece
-@turn.computer
-@turn.prompt
-@turn.place_piece
-@turn.computer
-@turn.prompt
-@turn.place_piece
-@turn.computer
-@turn.prompt
-@turn.place_piece
-@turn.computer
-@turn.prompt
-@turn.place_piece
-@turn.computer
-@turn.prompt
-@turn.place_piece
-@turn.computer
-
+21.times do
+  @turn.prompt
+  @turn.place_piece
+  @turn.computer
+end
 #loop until board is full or winner is determined
