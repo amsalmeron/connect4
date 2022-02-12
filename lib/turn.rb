@@ -1,15 +1,10 @@
 require 'pry'
 
-
-
 class Turn
-
   attr_reader :prompt, :input
-
   def initialize(board)
     @board = board
     @input = ""
-
   end
 
   def prompt
@@ -286,7 +281,7 @@ class Turn
   # def check_board
   #   binding.pry
   #   if @board.columns["A"].each_cons(4).find { |i| i = "X"}
-  # 
+  #
   # end
 
 end
