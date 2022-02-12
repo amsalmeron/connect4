@@ -270,7 +270,7 @@ class Turn
   def check_board
 
     checkpoint_A = @board.columns["A"].join('')
-    if checkpoint_A.include? "XXXX" || "OOOO"
+    if checkpoint_A.include? "XXXX"
       p "CONGRATS, YOU HAVE WON!"
     end
 
@@ -334,6 +334,8 @@ class Turn
       p "CONGRATS, YOU HAVE WON!"
     end
 
+    # full_board = @board.rows[0] + @board.rows[1] + @board.rows[2] + @board.rows[3] + @board.rows[4] + @board.rows[5]
+    # binding.pry
 
 
 
