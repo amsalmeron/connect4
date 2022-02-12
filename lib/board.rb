@@ -1,7 +1,7 @@
 require 'pry'
 
 class Board
-  attr_reader :columns, :render
+  attr_reader :columns, :rows, :render
   def initialize
     @columns = {
       "A" => [".", ".", ".", ".", ".", "."],
@@ -16,8 +16,8 @@ class Board
 
   def render
     puts @columns.keys.join
-    rows = @columns.values.transpose
-    rows.each do |row|
+    @rows = @columns.values.transpose
+    @rows.each do |row|
       puts row.join
     end
   end

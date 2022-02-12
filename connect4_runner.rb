@@ -19,7 +19,7 @@ end
   @turn.prompt
   @turn.place_piece
   @turn.computer
-  # @turn.check_board
+  @turn.check_board
 end
 #
 #
