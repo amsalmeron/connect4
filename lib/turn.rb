@@ -267,9 +267,132 @@ class Turn
     end
   end
 
-  # def check_board
-  #   binding.pry
-  #   if @board.columns["A"].each_cons(4).find { |i| i = "X"}
-  #
-  # end
+  def check_board
+
+    checkpoint_A = @board.columns["A"].join('')
+    if checkpoint_A.include? "XXXX" || "OOOO"
+      p "CONGRATS, YOU HAVE WON!"
+    end
+
+    checkpoint_B = @board.columns["B"].join('')
+    if checkpoint_B.include? "XXXX"
+      p "CONGRATS, YOU HAVE WON!"
+    end
+
+    checkpoint_C = @board.columns["C"].join('')
+    if checkpoint_C.include? "XXXX"
+      p "CONGRATS, YOU HAVE WON!"
+    end
+
+    checkpoint_D = @board.columns["D"].join('')
+    if checkpoint_D.include? "XXXX"
+      p "CONGRATS, YOU HAVE WON!"
+    end
+
+    checkpoint_E = @board.columns["E"].join('')
+    if checkpoint_E.include? "XXXX"
+      p "CONGRATS, YOU HAVE WON!"
+    end
+
+    checkpoint_F = @board.columns["F"].join('')
+    if checkpoint_F.include? "XXXX"
+      p "CONGRATS, YOU HAVE WON!"
+    end
+
+    checkpoint_G = @board.columns["G"].join('')
+    if checkpoint_G.include? "XXXX"
+      p "CONGRATS, YOU HAVE WON!"
+    end
+
+    row_1 = @board.rows[5].join('')
+    if row_1.include? "XXXX"
+      p "CONGRATS, YOU HAVE WON!"
+    end
+
+    row_2 = @board.rows[4].join('')
+    if row_2.include? "XXXX"
+      p "CONGRATS, YOU HAVE WON!"
+    end
+
+    row_3 = @board.rows[3].join('')
+    if row_3.include? "XXXX"
+      p "CONGRATS, YOU HAVE WON!"
+    end
+
+    row_4 = @board.rows[2].join('')
+    if row_4.include? "XXXX"
+      p "CONGRATS, YOU HAVE WON!"
+    end
+
+    row_5 = @board.rows[1].join('')
+    if row_5.include? "XXXX"
+      p "CONGRATS, YOU HAVE WON!"
+    end
+
+    row_6 = @board.rows[0].join('')
+    if row_6.include? "XXXX"
+      p "CONGRATS, YOU HAVE WON!"
+    end
+
+
+
+
+    # if @board.columns["A"][-1..-4] == "X"
+    #   p "LFG"
+    # elsif @board.columns["A"][-2..-5] == "X"
+    #   p "LFG"
+    # elsif @board.columns["A"][-3..-6] == "X"
+    #   p "LFG"
+    #
+    # end
+
+
+
+
+    # if @board.columns["A"][0] = "X" && @board.columns["A"][1] = "X" && @board.columns["A"][2] = "X" && @board.columns["A"][3] = "X"
+    #   puts "Congrats, not"
+    # # elsif @board.columns["A"][1] && @board.columns["A"][2] && @board.columns["A"][3] && @board.columns["A"][4] = "X" || "O"
+    # #   puts "Congrats, we have a winner."
+    # # elsif @board.columns["A"][2] && @board.columns["A"][3] && @board.columns["A"][4] && @board.columns["A"][5] = "X" || "O"
+    # #   puts "Congrats, we have a winner."
+    # # elsif @board.columns["B"][0] && @board.columns["B"][1] && @board.columns["B"][2] && @board.columns["B"][3] = "X" || "O"
+    # #   puts "Congrats, we have a winner."
+    # # elsif @board.columns["B"][1] && @board.columns["B"][2] && @board.columns["B"][3] && @board.columns["B"][4] = "X" || "O"
+    # #   puts "Congrats, we have a winner."
+    # # elsif @board.columns["B"][2] && @board.columns["B"][3] && @board.columns["B"][4] && @board.columns["B"][5] = "X" || "O"
+    # #   puts "Congrats, we have a winner."
+    # # elsif @board.columns["C"][0] && @board.columns["C"][1] && @board.columns["C"][2] && @board.columns["C"][3] = "X" || "O"
+    # #   puts "Congrats, we have a winner."
+    # # elsif @board.columns["C"][1] && @board.columns["C"][2] && @board.columns["C"][3] && @board.columns["C"][4] = "X" || "O"
+    # #   puts "Congrats, we have a winner."
+    # # elsif @board.columns["C"][2] && @board.columns["C"][3] && @board.columns["C"][4] && @board.columns["C"][5] = "X" || "O"
+    # #   puts "Congrats, we have a winner."
+    # # elsif @board.columns["D"][0] && @board.columns["D"][1] && @board.columns["D"][2] && @board.columns["D"][3] = "X" || "O"
+    # #   puts "Congrats, we have a winner."
+    # # elsif @board.columns["D"][1] && @board.columns["D"][2] && @board.columns["D"][3] && @board.columns["D"][4] = "X" || "O"
+    # #   puts "Congrats, we have a winner."
+    # # elsif @board.columns["D"][2] && @board.columns["D"][3] && @board.columns["D"][4] && @board.columns["D"][5] = "X" || "O"
+    # #   puts "Congrats, we have a winner."
+    # # elsif @board.columns["E"][0] && @board.columns["E"][1] && @board.columns["E"][2] && @board.columns["E"][3] = "X" || "O"
+    # #   puts "Congrats, we have a winner."
+    # # elsif @board.columns["E"][1] && @board.columns["E"][2] && @board.columns["E"][3] && @board.columns["E"][4] = "X" || "O"
+    # #   puts "Congrats, we have a winner."
+    # # elsif @board.columns["E"][2] && @board.columns["E"][3] && @board.columns["E"][4] && @board.columns["E"][5] = "X" || "O"
+    # #   puts "Congrats, we have a winner."
+    # # elsif @board.columns["F"][0] && @board.columns["F"][1] && @board.columns["F"][2] && @board.columns["F"][3] = "X" || "O"
+    # #   puts "Congrats, we have a winner."
+    # # elsif @board.columns["F"][1] && @board.columns["F"][2] && @board.columns["F"][3] && @board.columns["F"][4] = "X" || "O"
+    # #   puts "Congrats, we have a winner."
+    # # elsif @board.columns["F"][2] && @board.columns["F"][3] && @board.columns["F"][4] && @board.columns["F"][5] = "X" || "O"
+    # #   puts "Congrats, we have a winner."
+    # # elsif @board.columns["G"][0] && @board.columns["G"][1] && @board.columns["G"][2] && @board.columns["G"][3] = "X" || "O"
+    # #   puts "Congrats, we have a winner."
+    # # elsif @board.columns["G"][1] && @board.columns["G"][2] && @board.columns["G"][3] && @board.columns["G"][4] = "X" || "O"
+    # #   puts "Congrats, we have a winner."
+    # # elsif @board.columns["G"][2] && @board.columns["G"][3] && @board.columns["G"][4] && @board.columns["G"][5] = "X" || "O"
+    # #   puts "Congrats, we have a winner."
+    # else
+    # nil
+    # end
+  end
 end
