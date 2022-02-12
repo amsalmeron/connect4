@@ -13,7 +13,6 @@ if menu_selection == "p"
   board.render
   turn = Turn.new(board)
   game = Game.new(turn)
-  binding.pry
   game.play_game
 
 end

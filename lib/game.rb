@@ -1,5 +1,5 @@
 class Game
-  def initalize(turn)
+  def initialize(turn)
     @turn = turn
   end
 
