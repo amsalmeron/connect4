@@ -1,25 +1,21 @@
 require "pry"
 require "./lib/board"
 require "./lib/turn"
+require "./lib/game"
 
-puts "Welcome to Connect Four!"
-puts "Type 'start' to begin."
-puts "------------------------"
+puts "Welcome to CONNECT FOUR"
+puts "Enter p to play. Enter q to quit."
+puts "---------------------------------"
 
-# start = gets.chomp
-start = "start"
-if start == "start"
-  @board = Board.new
-  @board.render
-end
+menu_selection = gets.chomp
+if menu_selection == "p"
+  board = Board.new
+  board.render
+  turn = Turn.new(board)
+  game = Game.new(turn)
+  binding.pry
+  game.play_game
 
-@turn = Turn.new(@board)
-
-21.times do
-  @turn.prompt
-  @turn.place_piece
-  @turn.computer
-  @turn.check_board
 end
 #
 #
