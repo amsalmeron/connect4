@@ -1,6 +1,5 @@
 require 'pry'
 
-
 class Board
   attr_reader :columns, :render
   def initialize
