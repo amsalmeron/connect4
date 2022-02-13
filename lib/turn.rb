@@ -1,10 +1,13 @@
 require "pry"
+require 'matrix'
 
 class Turn
+  attr_accessor :winner
   def initialize(board)
     @board = board
     @column_names = @board.columns.keys
     @input = ""
+    @winner
   end
 
   def prompt
@@ -25,7 +28,7 @@ class Turn
 
   def place_piece
     loop do
-      @input = $stdin.gets.chomp
+      @input = $stdin.gets.chomp.upcase
 
       if @input == "A"
         if @board.columns["A"][-1] == "."
@@ -273,8 +276,10 @@ class Turn
     @board.columns.values.each do |column|
       checkpoint = column.join("")
       if checkpoint.include? "XXXX"
+        @winner = true
         p "CONGRATS, YOU HAVE WON"
       elsif checkpoint.include? "OOOO"
+        @winner = true
         p "YOU'VE BEEN BEATEN"
       end
     end
@@ -284,18 +289,26 @@ class Turn
     @board.rows.each do |row|
       checkpoint = row.join("")
       if checkpoint.include? "XXXX"
+        @winner = true
         p "CONGRATS, YOU HAVE WON"
       elsif checkpoint.include? "OOOO"
+        @winner = true
         p "YOU'VE BEEN BEATEN"
       end
     end
   end
-  # check diag wins
+
+  def check_diag_win
+    binding.pry
+  end
 
   def check_tie
-    if @columns.values.flatten.include? "." == false
-      p "---DRAW---"
+
+    if not @board.columns.values.flatten.to_s.include? "."
+      @winner = true
+      puts "-----DRAW-----"
     end
+
   end
 
   # def check_board_player
