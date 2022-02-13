@@ -12,7 +12,7 @@ RSpec.describe Turn do
     expect(@turn).to be_an_instance_of(Turn)
   end
 
-  xit "can display blank board" do
+  it "can display blank board" do
     expect { @turn.board.render }.to output(
       <<~EXPECTED
         ABCDEFG
