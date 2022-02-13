@@ -31,6 +31,7 @@ RSpec.describe Turn do
   end
 
   it "player can place piece in column A" do
+    allow($stdin).to receive_message_chain(:gets, :chomp).and_return "A"
     expect { @turn.place_piece }.to output(
       <<~EXPECTED
         ABCDEFG
