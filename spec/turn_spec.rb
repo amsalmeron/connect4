@@ -12,15 +12,26 @@ RSpec.describe Turn do
     expect(@turn).to be_an_instance_of(Turn)
   end
 
+  it "can display blank board" do
+    expect { @turn.board.render }.to output(
+      <<~EXPECTED
+        ABCDEFG
+        .......
+        .......
+        .......
+        .......
+        .......
+        .......
+      EXPECTED
+    ).to_stdout
+  end
+
   it "can create prompt" do
     expect { @turn.prompt }.to output("Select column A-G: \n").to_stdout
   end
 
-  xit "can place player piece in all columns" do
-    6.times do
-      @turn.place_piece
-    end
-
+  it "player can place piece in column A" do
+    allow($stdin).to receive_message_chain(:gets, :chomp).and_return "A"
     expect { @turn.place_piece }.to output(
       <<~EXPECTED
         ABCDEFG
@@ -29,13 +40,14 @@ RSpec.describe Turn do
         .......
         .......
         .......
-        XXXXXXX
+        X......
       EXPECTED
     ).to_stdout
   end
   # still working on this...
-  xit "computer places piece" do
-    expect(@board.columns.keys).to include(@turn.computer)
+  it "computer places piece" do
+    @turn.computer
+    expect(@board.columns.values).to include("O")
   end
   # still working
   xit "player and computer can fill board" do
@@ -57,13 +69,13 @@ RSpec.describe Turn do
     expect { @turn.place_piece }.to output("Column #{@input} is full.\n").to_stdout
   end
 
-  it "computer detects full column and adjusts" do
+  xit "computer detects full column and adjusts" do
     21.times do
       @turn.prompt
       @turn.place_piece
       @turn.computer
     end
-    expect(@board.columns.values.include?(".")).to be false
+    expect(@board.columns.value?(".")).to be false
   end
 
   # Tests for Iteration 3

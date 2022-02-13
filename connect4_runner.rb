@@ -29,7 +29,6 @@ end
 #
 #
 #
-#
 # Iteration 3 Pseudocode
 #
 # @turn.check_board
