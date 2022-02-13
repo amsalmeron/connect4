@@ -4,7 +4,8 @@ class Game
   end
 
   def play_game
-    21.times do
+
+    until @turn.winner == true do
       @turn.prompt
       @turn.place_piece
       @turn.check_vert_win
@@ -14,5 +15,6 @@ class Game
       @turn.check_horz_win
       @turn.check_tie
     end
+
   end
 end
