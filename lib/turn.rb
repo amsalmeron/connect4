@@ -3,6 +3,7 @@ require "pry"
 class Turn
   def initialize(board)
     @board = board
+    @column_names = @board.columns.keys
   end
 
   def prompt
@@ -10,220 +11,223 @@ class Turn
   end
 
   def place_piece
-    loop do
-      @input = $stdin.gets.chomp
+    @input = $stdin.gets.chomp.upcase
 
-      # if @input == "A"
-      #   @board.columns["A"].reverse.map { |value| value == "." ? "X" : value }
-      #   break @board.render
-
-      if @input == "A"
-        if @board.columns["A"][-1] == "."
-          @board.columns["A"][-1] = "X"
-          @board.render
-          break
-        elsif @board.columns["A"][-2] == "."
-          @board.columns["A"][-2] = "X"
-          @board.render
-          break
-        elsif @board.columns["A"][-3] == "."
-          @board.columns["A"][-3] = "X"
-          @board.render
-          break
-        elsif @board.columns["A"][-4] == "."
-          @board.columns["A"][-4] = "X"
-          @board.render
-          break
-        elsif @board.columns["A"][-5] == "."
-          @board.columns["A"][-5] = "X"
-          @board.render
-          break
-        elsif @board.columns["A"][-6] == "."
-          @board.columns["A"][-6] = "X"
-          @board.render
-          break
-        else
-          puts "Column A is full."
-        end
-
-      elsif @input == "B"
-        if @board.columns["B"][-1] == "."
-          @board.columns["B"][-1] = "X"
-          @board.render
-          break
-        elsif @board.columns["B"][-2] == "."
-          @board.columns["B"][-2] = "X"
-          @board.render
-          break
-        elsif @board.columns["B"][-3] == "."
-          @board.columns["B"][-3] = "X"
-          @board.render
-          break
-        elsif @board.columns["B"][-4] == "."
-          @board.columns["B"][-4] = "X"
-          @board.render
-          break
-        elsif @board.columns["B"][-5] == "."
-          @board.columns["B"][-5] = "X"
-          @board.render
-          break
-        elsif @board.columns["B"][-6] == "."
-          @board.columns["B"][-6] = "X"
-          @board.render
-          break
-        else
-          puts "Column B is full."
-        end
-
-      elsif @input == "C"
-        if @board.columns["C"][-1] == "."
-          @board.columns["C"][-1] = "X"
-          @board.render
-          break
-        elsif @board.columns["C"][-2] == "."
-          @board.columns["C"][-2] = "X"
-          @board.render
-          break
-        elsif @board.columns["C"][-3] == "."
-          @board.columns["C"][-3] = "X"
-          @board.render
-          break
-        elsif @board.columns["C"][-4] == "."
-          @board.columns["C"][-4] = "X"
-          @board.render
-          break
-        elsif @board.columns["C"][-5] == "."
-          @board.columns["C"][-5] = "X"
-          @board.render
-          break
-        elsif @board.columns["C"][-6] == "."
-          @board.columns["C"][-6] = "X"
-          @board.render
-          break
-        else
-          puts "Column C is full."
-        end
-
-      elsif @input == "D"
-        if @board.columns["D"][-1] == "."
-          @board.columns["D"][-1] = "X"
-          @board.render
-          break
-        elsif @board.columns["D"][-2] == "."
-          @board.columns["D"][-2] = "X"
-          @board.render
-          break
-        elsif @board.columns["D"][-3] == "."
-          @board.columns["D"][-3] = "X"
-          @board.render
-          break
-        elsif @board.columns["D"][-4] == "."
-          @board.columns["D"][-4] = "X"
-          @board.render
-          break
-        elsif @board.columns["D"][-5] == "."
-          @board.columns["D"][-5] = "X"
-          @board.render
-          break
-        elsif @board.columns["D"][-6] == "."
-          @board.columns["D"][-6] = "X"
-          @board.render
-          break
-        else
-          puts "Column D is full."
-        end
-
-      elsif @input == "E"
-        if @board.columns["E"][-1] == "."
-          @board.columns["E"][-1] = "X"
-          @board.render
-          break
-        elsif @board.columns["E"][-2] == "."
-          @board.columns["E"][-2] = "X"
-          @board.render
-          break
-        elsif @board.columns["E"][-3] == "."
-          @board.columns["E"][-3] = "X"
-          @board.render
-          break
-        elsif @board.columns["E"][-4] == "."
-          @board.columns["E"][-4] = "X"
-          @board.render
-          break
-        elsif @board.columns["E"][-5] == "."
-          @board.columns["E"][-5] = "X"
-          @board.render
-          break
-        elsif @board.columns["E"][-6] == "."
-          @board.columns["E"][-6] = "X"
-          @board.render
-          break
-        else
-          puts "Column E is full."
-        end
-
-      elsif @input == "F"
-        if @board.columns["F"][-1] == "."
-          @board.columns["F"][-1] = "X"
-          @board.render
-          break
-        elsif @board.columns["F"][-2] == "."
-          @board.columns["F"][-2] = "X"
-          @board.render
-          break
-        elsif @board.columns["F"][-3] == "."
-          @board.columns["F"][-3] = "X"
-          @board.render
-          break
-        elsif @board.columns["F"][-4] == "."
-          @board.columns["F"][-4] = "X"
-          @board.render
-          break
-        elsif @board.columns["F"][-5] == "."
-          @board.columns["F"][-5] = "X"
-          @board.render
-          break
-        elsif @board.columns["F"][-6] == "."
-          @board.columns["F"][-6] = "X"
-          @board.render
-          break
-        else
-          puts "Column F is full."
-        end
-
-      elsif @input == "G"
-        if @board.columns["G"][-1] == "."
-          @board.columns["G"][-1] = "X"
-          @board.render
-          break
-        elsif @board.columns["G"][-2] == "."
-          @board.columns["G"][-2] = "X"
-          @board.render
-          break
-        elsif @board.columns["G"][-3] == "."
-          @board.columns["G"][-3] = "X"
-          @board.render
-          break
-        elsif @board.columns["G"][-4] == "."
-          @board.columns["G"][-4] = "X"
-          @board.render
-          break
-        elsif @board.columns["G"][-5] == "."
-          @board.columns["G"][-5] = "X"
-          @board.render
-          break
-        elsif @board.columns["G"][-6] == "."
-          @board.columns["G"][-6] = "X"
-          @board.render
-          break
-        else
-          puts "Column G is full."
-        end
-
-      else
-        puts "Invalid input. Try again."
+    r_column = @board.columns[@input]
+    r_column.each.with_index do |value, inx|
+      if value == "."
+        index = inx
       end
+      @board.columns[@input][index] = "X"
+      @board.render
     end
+
+    # if @input == "A"
+    #   if @board.columns["A"][-1] == "."
+    #     @board.columns["A"][-1] = "X"
+    #     @board.render
+    #     break
+    #   elsif @board.columns["A"][-2] == "."
+    #     @board.columns["A"][-2] = "X"
+    #     @board.render
+    #     break
+    #   elsif @board.columns["A"][-3] == "."
+    #     @board.columns["A"][-3] = "X"
+    #     @board.render
+    #     break
+    #   elsif @board.columns["A"][-4] == "."
+    #     @board.columns["A"][-4] = "X"
+    #     @board.render
+    #     break
+    #   elsif @board.columns["A"][-5] == "."
+    #     @board.columns["A"][-5] = "X"
+    #     @board.render
+    #     break
+    #   elsif @board.columns["A"][-6] == "."
+    #     @board.columns["A"][-6] = "X"
+    #     @board.render
+    #     break
+    #   else
+    #     puts "Column A is full."
+    #   end
+    #
+    # elsif @input == "B"
+    #   if @board.columns["B"][-1] == "."
+    #     @board.columns["B"][-1] = "X"
+    #     @board.render
+    #     break
+    #   elsif @board.columns["B"][-2] == "."
+    #     @board.columns["B"][-2] = "X"
+    #     @board.render
+    #     break
+    #   elsif @board.columns["B"][-3] == "."
+    #     @board.columns["B"][-3] = "X"
+    #     @board.render
+    #     break
+    #   elsif @board.columns["B"][-4] == "."
+    #     @board.columns["B"][-4] = "X"
+    #     @board.render
+    #     break
+    #   elsif @board.columns["B"][-5] == "."
+    #     @board.columns["B"][-5] = "X"
+    #     @board.render
+    #     break
+    #   elsif @board.columns["B"][-6] == "."
+    #     @board.columns["B"][-6] = "X"
+    #     @board.render
+    #     break
+    #   else
+    #     puts "Column B is full."
+    #   end
+    #
+    # elsif @input == "C"
+    #   if @board.columns["C"][-1] == "."
+    #     @board.columns["C"][-1] = "X"
+    #     @board.render
+    #     break
+    #   elsif @board.columns["C"][-2] == "."
+    #     @board.columns["C"][-2] = "X"
+    #     @board.render
+    #     break
+    #   elsif @board.columns["C"][-3] == "."
+    #     @board.columns["C"][-3] = "X"
+    #     @board.render
+    #     break
+    #   elsif @board.columns["C"][-4] == "."
+    #     @board.columns["C"][-4] = "X"
+    #     @board.render
+    #     break
+    #   elsif @board.columns["C"][-5] == "."
+    #     @board.columns["C"][-5] = "X"
+    #     @board.render
+    #     break
+    #   elsif @board.columns["C"][-6] == "."
+    #     @board.columns["C"][-6] = "X"
+    #     @board.render
+    #     break
+    #   else
+    #     puts "Column C is full."
+    #   end
+    #
+    # elsif @input == "D"
+    #   if @board.columns["D"][-1] == "."
+    #     @board.columns["D"][-1] = "X"
+    #     @board.render
+    #     break
+    #   elsif @board.columns["D"][-2] == "."
+    #     @board.columns["D"][-2] = "X"
+    #     @board.render
+    #     break
+    #   elsif @board.columns["D"][-3] == "."
+    #     @board.columns["D"][-3] = "X"
+    #     @board.render
+    #     break
+    #   elsif @board.columns["D"][-4] == "."
+    #     @board.columns["D"][-4] = "X"
+    #     @board.render
+    #     break
+    #   elsif @board.columns["D"][-5] == "."
+    #     @board.columns["D"][-5] = "X"
+    #     @board.render
+    #     break
+    #   elsif @board.columns["D"][-6] == "."
+    #     @board.columns["D"][-6] = "X"
+    #     @board.render
+    #     break
+    #   else
+    #     puts "Column D is full."
+    #   end
+    #
+    # elsif @input == "E"
+    #   if @board.columns["E"][-1] == "."
+    #     @board.columns["E"][-1] = "X"
+    #     @board.render
+    #     break
+    #   elsif @board.columns["E"][-2] == "."
+    #     @board.columns["E"][-2] = "X"
+    #     @board.render
+    #     break
+    #   elsif @board.columns["E"][-3] == "."
+    #     @board.columns["E"][-3] = "X"
+    #     @board.render
+    #     break
+    #   elsif @board.columns["E"][-4] == "."
+    #     @board.columns["E"][-4] = "X"
+    #     @board.render
+    #     break
+    #   elsif @board.columns["E"][-5] == "."
+    #     @board.columns["E"][-5] = "X"
+    #     @board.render
+    #     break
+    #   elsif @board.columns["E"][-6] == "."
+    #     @board.columns["E"][-6] = "X"
+    #     @board.render
+    #     break
+    #   else
+    #     puts "Column E is full."
+    #   end
+    #
+    # elsif @input == "F"
+    #   if @board.columns["F"][-1] == "."
+    #     @board.columns["F"][-1] = "X"
+    #     @board.render
+    #     break
+    #   elsif @board.columns["F"][-2] == "."
+    #     @board.columns["F"][-2] = "X"
+    #     @board.render
+    #     break
+    #   elsif @board.columns["F"][-3] == "."
+    #     @board.columns["F"][-3] = "X"
+    #     @board.render
+    #     break
+    #   elsif @board.columns["F"][-4] == "."
+    #     @board.columns["F"][-4] = "X"
+    #     @board.render
+    #     break
+    #   elsif @board.columns["F"][-5] == "."
+    #     @board.columns["F"][-5] = "X"
+    #     @board.render
+    #     break
+    #   elsif @board.columns["F"][-6] == "."
+    #     @board.columns["F"][-6] = "X"
+    #     @board.render
+    #     break
+    #   else
+    #     puts "Column F is full."
+    #   end
+    #
+    # elsif @input == "G"
+    #   if @board.columns["G"][-1] == "."
+    #     @board.columns["G"][-1] = "X"
+    #     @board.render
+    #     break
+    #   elsif @board.columns["G"][-2] == "."
+    #     @board.columns["G"][-2] = "X"
+    #     @board.render
+    #     break
+    #   elsif @board.columns["G"][-3] == "."
+    #     @board.columns["G"][-3] = "X"
+    #     @board.render
+    #     break
+    #   elsif @board.columns["G"][-4] == "."
+    #     @board.columns["G"][-4] = "X"
+    #     @board.render
+    #     break
+    #   elsif @board.columns["G"][-5] == "."
+    #     @board.columns["G"][-5] = "X"
+    #     @board.render
+    #     break
+    #   elsif @board.columns["G"][-6] == "."
+    #     @board.columns["G"][-6] = "X"
+    #     @board.render
+    #     break
+    #   else
+    #     puts "Column G is full."
+    #   end
+    #
+    # else
+    #   puts "Invalid input. Try again."
+    # end
   end
 
   def computer
@@ -259,7 +263,25 @@ class Turn
     end
   end
 
-  def check_board
+  def check_vert_win
+    @board.columns.values.each do |column|
+      checkpoint = column.join("")
+      if checkpoint.include? "XXXX"
+        p "CONGRATS, YOU HAVE WON"
+      elsif checkpoint.include? "OOOO"
+        p "YOU'VE BEEN BEATEN"
+      end
+    end
+
+    # check_horiz_win
+    # check diag wins
+
+    def check_tie
+      if @columns.values.flatten.include? "." == false
+        p "---DRAW---"
+      end
+    end
+
     checkpoint_A = @board.columns["A"].join("")
     if checkpoint_A.include? "XXXX"
       p "CONGRATS, YOU HAVE WON!"

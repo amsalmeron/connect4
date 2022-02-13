@@ -46,7 +46,7 @@ RSpec.describe Turn do
   # still working on this...
   it "computer places piece" do
     @turn.computer
-    expect(@board.columns.keys).to include(@turn.computer)
+    expect(@board.columns.values).to include("O")
   end
   # still working
   xit "player and computer can fill board" do
