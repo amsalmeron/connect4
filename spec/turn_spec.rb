@@ -8,12 +8,12 @@ RSpec.describe Turn do
     @turn = Turn.new(@board)
   end
 
-  it "can create new turn" do
+  xit "can create new turn" do
     expect(@turn).to be_an_instance_of(Turn)
   end
 
-  it "can display blank board" do
-    expect { @turn.board.render }.to output(
+  xit "can display blank board" do
+    expect { @board.render }.to output(
       <<~EXPECTED
         ABCDEFG
         .......
@@ -26,11 +26,11 @@ RSpec.describe Turn do
     ).to_stdout
   end
 
-  it "can create prompt" do
+  xit "can create prompt" do
     expect { @turn.prompt }.to output("Select column A-G: \n").to_stdout
   end
 
-  it "player can place piece in column A" do
+  xit "player can place piece in column A" do
     allow($stdin).to receive_message_chain(:gets, :chomp).and_return "A"
     expect { @turn.place_piece }.to output(
       <<~EXPECTED
@@ -44,29 +44,34 @@ RSpec.describe Turn do
       EXPECTED
     ).to_stdout
   end
-  # still working on this...
-  it "computer places piece" do
+
+  xit "computer places piece" do
     @turn.computer
-    expect(@board.columns.values).to include("O")
+    expect(@board.columns.values.join('')).to include("O")
+  end
+
+  xit "can detect invalid column selection then place piece on column A" do
+    #must choose invalid column first than column A
+    expect { @turn.place_piece }.to output(
+      <<~EXPECTED
+        Invalid input. Try again.
+        ABCDEFG
+        .......
+        .......
+        .......
+        .......
+        .......
+        X......
+      EXPECTED
+    ).to_stdout
   end
   # still working
-  xit "player and computer can fill board" do
-    20.times do
+  it "can detect column A is full" do
+    6.times do
       @turn.prompt
       @turn.place_piece
-      @turn.computer
     end
-  end
-  # still working
-  xit "can detect invalid column selection" do
-    expect { @turn.place_piece }.to output("Invalid input. Try again.\n").to_stdout
-  end
-  # still working
-  xit "can detect full column" do
-    6.times do
-      @turn.place_piece
-    end
-    expect { @turn.place_piece }.to output("Column #{@input} is full.\n").to_stdout
+    expect (@turn.place_piece.output).to include("Column A is full.")
   end
 
   xit "computer detects full column and adjusts" do
@@ -76,6 +81,15 @@ RSpec.describe Turn do
       @turn.computer
     end
     expect(@board.columns.value?(".")).to be false
+  end
+
+  xit 'check full board for tie' do
+    21.times do
+      @turn.prompt
+      @turn.place_piece
+      @turn.computer
+    end
+    expect { @turn.check_tie }.to output("-----DRAW-----\n").to_stdout
   end
 
   # Tests for Iteration 3
