@@ -269,101 +269,166 @@ class Turn
     end
   end
 
-  # def check_vert_win
-  #   @board.columns.values.each do |column|
-  #     checkpoint = column.join("")
-  #     if checkpoint.include? "XXXX"
-  #       p "CONGRATS, YOU HAVE WON"
-  #     elsif checkpoint.include? "OOOO"
-  #       p "YOU'VE BEEN BEATEN"
-  #     end
-  #   end
+  def check_vert_win
+    @board.columns.values.each do |column|
+      checkpoint = column.join("")
+      if checkpoint.include? "XXXX"
+        p "CONGRATS, YOU HAVE WON"
+      elsif checkpoint.include? "OOOO"
+        p "YOU'VE BEEN BEATEN"
+      end
+    end
+  end
 
-  # check_horiz_win
+  def check_horz_win
+    @board.rows.each do |row|
+      checkpoint = row.join("")
+      if checkpoint.include? "XXXX"
+        p "CONGRATS, YOU HAVE WON"
+      elsif checkpoint.include? "OOOO"
+        p "YOU'VE BEEN BEATEN"
+      end
+    end
+  end
   # check diag wins
 
-  # def check_tie
-  #   if @columns.values.flatten.include? "." == false
-  #     p "---DRAW---"
+  def check_tie
+    if @columns.values.flatten.include? "." == false
+      p "---DRAW---"
+    end
+  end
+
+  # def check_board_player
+  #   checkpoint_a = @board.columns["A"].join("")
+  #   if checkpoint_a.include? "XXXX"
+  #     p "CONGRATS, YOU HAVE WON!"
+  #   end
+  #
+  #   checkpoint_b = @board.columns["B"].join("")
+  #   if checkpoint_b.include? "XXXX"
+  #     p "CONGRATS, YOU HAVE WON!"
+  #   end
+  #
+  #   checkpoint_c = @board.columns["C"].join("")
+  #   if checkpoint_c.include? "XXXX"
+  #     p "CONGRATS, YOU HAVE WON!"
+  #   end
+  #
+  #   checkpoint_d = @board.columns["D"].join("")
+  #   if checkpoint_d.include? "XXXX"
+  #     p "CONGRATS, YOU HAVE WON!"
+  #   end
+  #
+  #   checkpoint_e = @board.columns["E"].join("")
+  #   if checkpoint_e.include? "XXXX"
+  #     p "CONGRATS, YOU HAVE WON!"
+  #   end
+  #
+  #   checkpoint_f = @board.columns["F"].join("")
+  #   if checkpoint_f.include? "XXXX"
+  #     p "CONGRATS, YOU HAVE WON!"
+  #   end
+  #
+  #   checkpoint_g = @board.columns["G"].join("")
+  #   if checkpoint_g.include? "XXXX"
+  #     p "CONGRATS, YOU HAVE WON!"
+  #   end
+  #
+  #   row_1 = @board.rows[5].join("")
+  #   if row_1.include? "XXXX"
+  #     p "CONGRATS, YOU HAVE WON!"
+  #   end
+  #
+  #   row_2 = @board.rows[4].join("")
+  #   if row_2.include? "XXXX"
+  #     p "CONGRATS, YOU HAVE WON!"
+  #   end
+  #
+  #   row_3 = @board.rows[3].join("")
+  #   if row_3.include? "XXXX"
+  #     p "CONGRATS, YOU HAVE WON!"
+  #   end
+  #
+  #   row_4 = @board.rows[2].join("")
+  #   if row_4.include? "XXXX"
+  #     p "CONGRATS, YOU HAVE WON!"
+  #   end
+  #
+  #   row_5 = @board.rows[1].join("")
+  #   if row_5.include? "XXXX"
+  #     p "CONGRATS, YOU HAVE WON!"
+  #   end
+  #
+  #   row_6 = @board.rows[0].join("")
+  #   if row_6.include? "XXXX"
+  #     p "CONGRATS, YOU HAVE WON!"
   #   end
   # end
 
-  def check_board
-    checkpoint_a = @board.columns["A"].join("")
-    if checkpoint_a.include? "XXXX"
-      p "CONGRATS, YOU HAVE WON!"
-    end
-
-    checkpoint_b = @board.columns["B"].join("")
-    if checkpoint_b.include? "XXXX"
-      p "CONGRATS, YOU HAVE WON!"
-    end
-
-    checkpoint_c = @board.columns["C"].join("")
-    if checkpoint_c.include? "XXXX"
-      p "CONGRATS, YOU HAVE WON!"
-    end
-
-    checkpoint_d = @board.columns["D"].join("")
-    if checkpoint_d.include? "XXXX"
-      p "CONGRATS, YOU HAVE WON!"
-    end
-
-    checkpoint_e = @board.columns["E"].join("")
-    if checkpoint_e.include? "XXXX"
-      p "CONGRATS, YOU HAVE WON!"
-    end
-
-    checkpoint_f = @board.columns["F"].join("")
-    if checkpoint_f.include? "XXXX"
-      p "CONGRATS, YOU HAVE WON!"
-    end
-
-    checkpoint_g = @board.columns["G"].join("")
-    if checkpoint_g.include? "XXXX"
-      p "CONGRATS, YOU HAVE WON!"
-    end
-
-    row_1 = @board.rows[5].join("")
-    if row_1.include? "XXXX"
-      p "CONGRATS, YOU HAVE WON!"
-    end
-
-    row_2 = @board.rows[4].join("")
-    if row_2.include? "XXXX"
-      p "CONGRATS, YOU HAVE WON!"
-    end
-
-    row_3 = @board.rows[3].join("")
-    if row_3.include? "XXXX"
-      p "CONGRATS, YOU HAVE WON!"
-    end
-
-    row_4 = @board.rows[2].join("")
-    if row_4.include? "XXXX"
-      p "CONGRATS, YOU HAVE WON!"
-    end
-
-    row_5 = @board.rows[1].join("")
-    if row_5.include? "XXXX"
-      p "CONGRATS, YOU HAVE WON!"
-    end
-
-    row_6 = @board.rows[0].join("")
-    if row_6.include? "XXXX"
-      p "CONGRATS, YOU HAVE WON!"
-    end
-  end
+  # def check_board_comp
+  #   checkpoint_a = @board.columns["A"].join("")
+  #   if checkpoint_a.include? "OOOO"
+  #     p "CONGRATS, YOU HAVE WON!"
+  #   end
+  #
+  #   checkpoint_b = @board.columns["B"].join("")
+  #   if checkpoint_b.include? "OOOO"
+  #     p "CONGRATS, YOU HAVE WON!"
+  #   end
+  #
+  #   checkpoint_c = @board.columns["C"].join("")
+  #   if checkpoint_c.include? "OOOO"
+  #     p "CONGRATS, YOU HAVE WON!"
+  #   end
+  #
+  #   checkpoint_d = @board.columns["D"].join("")
+  #   if checkpoint_d.include? "OOOO"
+  #     p "CONGRATS, YOU HAVE WON!"
+  #   end
+  #
+  #   checkpoint_e = @board.columns["E"].join("")
+  #   if checkpoint_e.include? "OOOO"
+  #     p "CONGRATS, YOU HAVE WON!"
+  #   end
+  #
+  #   checkpoint_f = @board.columns["F"].join("")
+  #   if checkpoint_f.include? "OOOO"
+  #     p "CONGRATS, YOU HAVE WON!"
+  #   end
+  #
+  #   checkpoint_g = @board.columns["G"].join("")
+  #   if checkpoint_g.include? "OOOO"
+  #     p "CONGRATS, YOU HAVE WON!"
+  #   end
+  #
+  #   row_1 = @board.rows[5].join("")
+  #   if row_1.include? "OOOO"
+  #     p "CONGRATS, YOU HAVE WON!"
+  #   end
+  #
+  #   row_2 = @board.rows[4].join("")
+  #   if row_2.include? "OOOO"
+  #     p "CONGRATS, YOU HAVE WON!"
+  #   end
+  #
+  #   row_3 = @board.rows[3].join("")
+  #   if row_3.include? "OOOO"
+  #     p "CONGRATS, YOU HAVE WON!"
+  #   end
+  #
+  #   row_4 = @board.rows[2].join("")
+  #   if row_4.include? "OOOO"
+  #     p "CONGRATS, YOU HAVE WON!"
+  #   end
+  #
+  #   row_5 = @board.rows[1].join("")
+  #   if row_5.include? "OOOO"
+  #     p "CONGRATS, YOU HAVE WON!"
+  #   end
+  #
+  #   row_6 = @board.rows[0].join("")
+  #   if row_6.include? "OOOO"
+  #     p "CONGRATS, YOU HAVE WON!"
+  #   end
+  # end
 end
-
-# full_board = @board.rows[0] + @board.rows[1] + @board.rows[2] + @board.rows[3] + @board.rows[4] + @board.rows[5]
-# binding.pry
-
-# if @board.columns["A"][-1..-4] == "X"
-#   p "LFG"
-# elsif @board.columns["A"][-2..-5] == "X"
-#   p "LFG"
-# elsif @board.columns["A"][-3..-6] == "X"
-#   p "LFG"
-#
-# end
