@@ -22,6 +22,7 @@ class Game
   #   end
   # end
 
+
   def player_turn
     @turn.prompt
     @turn.place_piece
@@ -38,30 +39,42 @@ class Game
     puts "Enter p to play. Enter q to quit."
     puts "---------------------------------"
 
-    menu_selection = gets.chomp
-    if menu_selection == "p"
+    @menu_selection = gets.chomp
+    if @menu_selection == "p"
+      @board = Board.new
+      @turn = Turn.new(@board)
       @board.render
     end
   end
 
   def play_game
+
     start_game
-<<<<<<< HEAD
-    player_turn
-    @turn.check_endgame
-    if @endgame == true
-      start_game
-=======
-    loop do
-      player_turn
-      if @endgame == true
-        break
+      until @menu_selection != "p"
+        while @turn.endgame != true
+          player_turn
+          computer_turn
+        end
+
+        start_game
+        @turn.endgame = nil
       end
->>>>>>> 8baccca8de52dc0ce9240120ae1030a7c0575018
-      computer_turn
-      if @endgame == true
-        break
-      end
-    end
+
+      # begin
+      #   while @turn.endgame != true
+      #     player_turn
+      #     computer_turn
+      #   end
+      #   start_game
+      #   @endgame = nil
+      # rescue
+      #   retry if @menu_selection == "p"
+      # end
+
+      # while @turn.endgame != true
+      #   player_turn
+      #   computer_turn
+      # end
   end
+
 end

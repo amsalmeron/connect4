@@ -6,6 +6,7 @@ class Turn
     @board = board
     @column_names = @board.columns.keys
     @input = ""
+    @endgame = false
   end
 
   def prompt
