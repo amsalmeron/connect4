@@ -25,10 +25,12 @@ class Game
   def player_turn
     @turn.prompt
     @turn.place_piece
+    @turn.check_endgame
   end
 
   def computer_turn
     @turn.computer
+    @turn.check_endgame
   end
 
   def start_game
@@ -44,12 +46,15 @@ class Game
 
   def play_game
     start_game
-    player_turn
-    @turn.check_endgame
-    if @endgame == true
-      start_game
+    loop do
+      player_turn
+      if @endgame == true
+        break
+      end
       computer_turn
-      @turn.check_endgame
+      if @endgame == true
+        break
+      end
     end
   end
 end
