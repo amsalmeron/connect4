@@ -73,12 +73,56 @@ RSpec.describe Turn do
     expect(@turn.endgame).to eq(true)
   end
 
-  xit "check full board for tie" do
-    21.times do
-      @turn.prompt
+  it "can check horizontal win" do
+    4.times do
+      allow($stdin).to receive_message_chain(:gets, :chomp).and_return "A"
       @turn.place_piece
-      @turn.computer
     end
-    expect { @turn.check_tie }.to output("-----DRAW-----\n").to_stdout
+    3.times do
+      allow($stdin).to receive_message_chain(:gets, :chomp).and_return "B"
+      @turn.place_piece
+    end
+    2.times do
+      allow($stdin).to receive_message_chain(:gets, :chomp).and_return "C"
+      @turn.place_piece
+    end
+    allow($stdin).to receive_message_chain(:gets, :chomp).and_return "D"
+    @turn.place_piece
+
+    @turn.check_diag_win
+    expect(@turn.endgame).to eq(true)
+  end
+
+  it "check full board for tie" do
+    6.times do
+      allow($stdin).to receive_message_chain(:gets, :chomp).and_return "A"
+      @turn.place_piece
+    end
+    6.times do
+      allow($stdin).to receive_message_chain(:gets, :chomp).and_return "B"
+      @turn.place_piece
+    end
+    6.times do
+      allow($stdin).to receive_message_chain(:gets, :chomp).and_return "C"
+      @turn.place_piece
+    end
+    6.times do
+      allow($stdin).to receive_message_chain(:gets, :chomp).and_return "D"
+      @turn.place_piece
+    end
+    6.times do
+      allow($stdin).to receive_message_chain(:gets, :chomp).and_return "E"
+      @turn.place_piece
+    end
+    6.times do
+      allow($stdin).to receive_message_chain(:gets, :chomp).and_return "F"
+      @turn.place_piece
+    end
+    6.times do
+      allow($stdin).to receive_message_chain(:gets, :chomp).and_return "G"
+      @turn.place_piece
+    end
+    @turn.check_tie
+    expect(@turn.endgame).to eq(true)
   end
 end
