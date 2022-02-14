@@ -33,28 +33,36 @@ class Game
     @turn.check_endgame
   end
 
-  def start_game
+  def play_game
     puts "Welcome to CONNECT FOUR"
     puts "Enter p to play. Enter q to quit."
     puts "---------------------------------"
 
-    menu_selection = gets.chomp
-    if menu_selection == "p"
+    @menu_selection = gets.chomp
+    if @menu_selection == "p"
       @board.render
+      until @endgame == true
+        player_turn
+        computer_turn
+      end
+    elsif @menu_selection == "q"
     end
   end
 
-  def play_game
-    start_game
-    loop do
-      player_turn
-      if @endgame == true
-        break
-      end
-      computer_turn
-      if @endgame == true
-        break
-      end
-    end
-  end
+  # def play_game
+  #   loop do
+  #     start_game
+  #     loop do
+  #       player_turn
+  #       if @endgame == true
+  #         break
+  #       elsif @endgame != true
+  #         computer_turn
+  #         if @endgame == true
+  #           break
+  #         end
+  #       end
+  #     end
+  #   end
+  # end
 end
