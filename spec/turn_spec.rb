@@ -8,11 +8,11 @@ RSpec.describe Turn do
     @turn = Turn.new(@board)
   end
 
-  xit "can create new turn" do
+  it "can create new turn" do
     expect(@turn).to be_an_instance_of(Turn)
   end
 
-  xit "can display blank board" do
+  it "can display blank board" do
     expect { @board.render }.to output(
       <<~EXPECTED
         ABCDEFG
@@ -26,11 +26,11 @@ RSpec.describe Turn do
     ).to_stdout
   end
 
-  xit "can create prompt" do
+  it "can create prompt" do
     expect { @turn.prompt }.to output("Select column A-G: \n").to_stdout
   end
 
-  xit "player can place piece in column A" do
+  it "player can place piece in column A" do
     allow($stdin).to receive_message_chain(:gets, :chomp).and_return "A"
     expect { @turn.place_piece }.to output(
       <<~EXPECTED
@@ -45,42 +45,32 @@ RSpec.describe Turn do
     ).to_stdout
   end
 
-  xit "computer places piece" do
+  it "computer places piece" do
     @turn.computer
     expect(@board.columns.values.join("")).to include("O")
   end
 
-  xit "can detect invalid column selection then place piece on column A" do
-    # must choose invalid column first than column A
-    expect { @turn.place_piece }.to output(
-      <<~EXPECTED
-        Invalid input. Try again.
-        ABCDEFG
-        .......
-        .......
-        .......
-        .......
-        .......
-        X......
-      EXPECTED
-    ).to_stdout
-  end
-  # still working
-  it "can detect column A is full" do
-    6.times do
-      @turn.prompt
+  it "can check vertical win" do
+    4.times do
+      allow($stdin).to receive_message_chain(:gets, :chomp).and_return "A"
       @turn.place_piece
     end
-    expect (@turn.place_piece.output).to include("Column A is full.")
+    @turn.check_vert_win
+    expect(@turn.endgame).to eq(true)
   end
 
-  xit "computer detects full column and adjusts" do
-    21.times do
-      @turn.prompt
-      @turn.place_piece
-      @turn.computer
-    end
-    expect(@board.columns.value?(".")).to be false
+  it "can check horizontal win" do
+    allow($stdin).to receive_message_chain(:gets, :chomp).and_return "A"
+    @turn.place_piece
+    allow($stdin).to receive_message_chain(:gets, :chomp).and_return "B"
+    @turn.place_piece
+    allow($stdin).to receive_message_chain(:gets, :chomp).and_return "C"
+    @turn.place_piece
+    allow($stdin).to receive_message_chain(:gets, :chomp).and_return "D"
+    @turn.place_piece
+
+    @turn.check_horz_win
+    expect(@turn.endgame).to eq(true)
   end
 
   xit "check full board for tie" do
@@ -91,17 +81,4 @@ RSpec.describe Turn do
     end
     expect { @turn.check_tie }.to output("-----DRAW-----\n").to_stdout
   end
-  #---------------------------------------------------
-  # Tests for Iteration 3
-  # it "can convert each column to its own string"
-  # it "can check column strings for 'XXXX' or 'OOOO'"
-  # it "can convert each row to its own string"
-  # it "can check row strings for 'XXXX' or 'OOOO'"
-  #---------------------------------------------------
-  it "can convert upper left to lower right diagonal (diagonal_1) win combos to their own strings" do
-    expect
-  end
-  # it "can check diagonal_1 strings for 'XXXX' or 'OOOO'"
-  # it "can convert lower left to upper right diagonal (diagonal_2) win combos to their own strings"
-  # it "can check diagonal_2 strings for 'XXXX' or 'OOOO'"
 end

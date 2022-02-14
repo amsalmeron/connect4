@@ -4,24 +4,6 @@ class Game
     @board = board
   end
 
-  # def play_game
-  #   until @turn.endgame == true
-  #     @turn.prompt
-  #     @turn.place_piece
-  #     @turn.check_endgame
-  #     # @turn.check_vert_win
-  #     # @turn.check_horz_win
-  #     # @turn.check_diag_win
-  #     # @turn.check_tie
-  #     @turn.computer
-  #     @turn.check_endgame
-  #     # @turn.check_vert_win
-  #     # @turn.check_horz_win
-  #     # @turn.check_diag_win
-  #     # @turn.check_tie
-  #   end
-  # end
-
   def player_turn
     @turn.prompt
     @turn.place_piece
