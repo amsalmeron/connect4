@@ -37,19 +37,16 @@ class Game
 
     menu_selection = gets.chomp
     if menu_selection == "p"
-      board = Board.new
-      turn = Turn.new(board)
-      game = Game.new(turn)
-
       board.render
     end
+  end
 
-    def play_game
+  def play_game
+    start_game
+    player_turn
+    @turn.check_endgame
+    if @endgame == true
       start_game
-      player_turn
-      @turn.check_endgame
-      if @endgame == true
-        start_game
       computer_turn
       @turn.check_endgame
     end
