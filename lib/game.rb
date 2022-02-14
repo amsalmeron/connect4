@@ -4,7 +4,7 @@ class Game
   end
 
   def play_game
-    until @turn.winner == true
+    until @turn.endgame == true
       @turn.prompt
       @turn.place_piece
       @turn.check_vert_win

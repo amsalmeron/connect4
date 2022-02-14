@@ -2,7 +2,7 @@ require "pry"
 require "matrix"
 
 class Turn
-  attr_accessor :winner
+  attr_accessor :endgame
   def initialize(board)
     @board = board
     @column_names = @board.columns.keys
@@ -263,11 +263,11 @@ class Turn
     @board.columns.values.each do |column|
       checkpoint = column.join("")
       if checkpoint.include? "XXXX"
-        @winner = true
+        @endgame = true
         p "CONGRATS, YOU HAVE WON"
       elsif checkpoint.include? "OOOO"
-        @winner = true
-        p "YOU'VE BEEN BEATEN"
+        @endgame = true
+        p "YOU HAVE BEEN BEATEN"
       end
     end
   end
@@ -276,11 +276,11 @@ class Turn
     @board.rows.each do |row|
       checkpoint = row.join("")
       if checkpoint.include? "XXXX"
-        @winner = true
+        @endgame = true
         p "CONGRATS, YOU HAVE WON"
       elsif checkpoint.include? "OOOO"
-        @winner = true
-        p "YOU'VE BEEN BEATEN"
+        @endgame = true
+        p "YOU HAVE BEEN BEATEN"
       end
     end
   end
@@ -333,11 +333,11 @@ class Turn
 
     lr_diagonals.each do |lr_diagonal_num|
       if lr_diagonal_num.join.include? "XXXX"
-        @winner = true
+        @endgame = true
         p "CONGRATS, YOU HAVE WON"
       elsif lr_diagonal_num.join.include? "OOOO"
-        @winner = true
-        p "YOU'VE BEEN BEATEN"
+        @endgame = true
+        p "YOU HAVE BEEN BEATEN"
       end
     end
 
@@ -388,18 +388,18 @@ class Turn
 
     rl_diagonals.each do |rl_diagonal_num|
       if rl_diagonal_num.join.include? "XXXX"
-        @winner = true
+        @endgame = true
         p "CONGRATS, YOU HAVE WON"
       elsif rl_diagonal_num.join.include? "OOOO"
-        @winner = true
-        p "YOU'VE BEEN BEATEN"
+        @endgame = true
+        p "YOU HAVE BEEN BEATEN"
       end
     end
   end
 
   def check_tie
     if !@board.columns.values.flatten.to_s.include? "."
-      @winner = true
+      @endgame = true
       puts "-----DRAW-----"
     end
   end
