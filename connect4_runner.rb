@@ -3,26 +3,25 @@ require "./lib/board"
 require "./lib/turn"
 require "./lib/game"
 
-puts "Welcome to CONNECT FOUR"
-puts "Enter p to play. Enter q to quit."
-puts "---------------------------------"
-
-#menu_selection = gets.chomp
-menu_selection = 'p'
-if menu_selection == "p"
-  board = Board.new
-  turn = Turn.new(board)
-  game = Game.new(turn)
-
-  board.render
-  game.play_game
-
-end
+game.play_game
 #
 #
 #
 #
+# puts "Welcome to CONNECT FOUR"
+# puts "Enter p to play. Enter q to quit."
+# puts "---------------------------------"
 #
+# menu_selection = gets.chomp
+# if menu_selection == "p"
+#   board = Board.new
+#   turn = Turn.new(board)
+#   game = Game.new(turn)
+#
+#   board.render
+#   game.play_game
+#
+# end
 #
 #
 #
