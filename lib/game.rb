@@ -40,41 +40,25 @@ class Game
 
     @menu_selection = gets.chomp
     if @menu_selection == "p"
+      @board = Board.new
+      @turn = Turn.new(@board)
       @board.render
-      until @endgame == true
-        player_turn
-        computer_turn
-      end
-    elsif @menu_selection == "q"
     end
   end
 
   def play_game
     start_game
     until @menu_selection != "p"
-      while @turn.endgame != true
+      while @turn.endgame == false
         player_turn
+        if @turn.endgame == true
+          break
+        end
         computer_turn
       end
 
       start_game
-      @turn.endgame = nil
+      @turn.endgame = false
     end
-
-    # begin
-    #   while @turn.endgame != true
-    #     player_turn
-    #     computer_turn
-    #   end
-    #   start_game
-    #   @endgame = nil
-    # rescue
-    #   retry if @menu_selection == "p"
-    # end
-
-    # while @turn.endgame != true
-    #   player_turn
-    #   computer_turn
-    # end
   end
 end
