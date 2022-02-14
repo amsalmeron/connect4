@@ -30,19 +30,10 @@ RSpec.describe Turn do
     expect { @turn.prompt }.to output("Select column A-G: \n").to_stdout
   end
 
-  it "player can place piece in column A" do
+  it "player can place piece" do
     allow($stdin).to receive_message_chain(:gets, :chomp).and_return "A"
-    expect { @turn.place_piece }.to output(
-      <<~EXPECTED
-        ABCDEFG
-        .......
-        .......
-        .......
-        .......
-        .......
-        X......
-      EXPECTED
-    ).to_stdout
+    @turn.place_piece
+    expect(@board.columns.values.join("")).to include("X")
   end
 
   it "computer places piece" do
