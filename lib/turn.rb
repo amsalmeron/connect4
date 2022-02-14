@@ -403,4 +403,11 @@ class Turn
       puts "-----DRAW-----"
     end
   end
+
+  def check_endgame
+    check_vert_win
+    check_horz_win
+    check_diag_win
+    check_tie
+  end
 end
