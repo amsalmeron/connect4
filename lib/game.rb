@@ -49,20 +49,32 @@ class Game
     end
   end
 
-  # def play_game
-  #   loop do
-  #     start_game
-  #     loop do
-  #       player_turn
-  #       if @endgame == true
-  #         break
-  #       elsif @endgame != true
-  #         computer_turn
-  #         if @endgame == true
-  #           break
-  #         end
-  #       end
-  #     end
-  #   end
-  # end
+  def play_game
+    start_game
+    until @menu_selection != "p"
+      while @turn.endgame != true
+        player_turn
+        computer_turn
+      end
+
+      start_game
+      @turn.endgame = nil
+    end
+
+    # begin
+    #   while @turn.endgame != true
+    #     player_turn
+    #     computer_turn
+    #   end
+    #   start_game
+    #   @endgame = nil
+    # rescue
+    #   retry if @menu_selection == "p"
+    # end
+
+    # while @turn.endgame != true
+    #   player_turn
+    #   computer_turn
+    # end
+  end
 end
