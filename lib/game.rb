@@ -1,6 +1,7 @@
 class Game
-  def initialize(turn)
+  def initialize(turn, board)
     @turn = turn
+    @board = board
   end
 
   # def play_game
@@ -37,7 +38,7 @@ class Game
 
     menu_selection = gets.chomp
     if menu_selection == "p"
-      board.render
+      @board.render
     end
   end
 

@@ -5,7 +5,7 @@ require "./lib/game"
 
 board = Board.new
 turn = Turn.new(board)
-game = Game.new(turn)
+game = Game.new(turn, board)
 
 game.play_game
 #
