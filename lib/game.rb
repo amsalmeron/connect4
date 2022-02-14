@@ -43,6 +43,8 @@ class Game
       @board = Board.new
       @turn = Turn.new(@board)
       @board.render
+    elsif @menu_selection != "q"
+      puts "Invalid input, restart and try again."
     end
   end
 
