@@ -43,13 +43,14 @@ class Game
 
       board.render
     end
+  end
 
-    def play_game
+  def play_game
+    start_game
+    player_turn
+    @turn.check_endgame
+    if @endgame == true
       start_game
-      player_turn
-      @turn.check_endgame
-      if @endgame == true
-        start_game
       computer_turn
       @turn.check_endgame
     end
