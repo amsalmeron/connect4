@@ -1,5 +1,4 @@
 require "pry"
-require 'matrix'
 
 class Turn
   attr_accessor :winner
