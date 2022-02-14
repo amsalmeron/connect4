@@ -33,7 +33,7 @@ class Game
     @turn.check_endgame
   end
 
-  def play_game
+  def start_game
     puts "Welcome to CONNECT FOUR"
     puts "Enter p to play. Enter q to quit."
     puts "---------------------------------"
