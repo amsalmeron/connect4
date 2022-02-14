@@ -288,56 +288,54 @@ class Turn
   def check_diag_win
     lr_diagonals = [
       lr_diagonal_1 = [
-      @board.columns["A"][2],
-      @board.columns["B"][3],
-      @board.columns["C"][4],
-      @board.columns["D"][5]
-    ]
+        @board.columns["A"][2],
+        @board.columns["B"][3],
+        @board.columns["C"][4],
+        @board.columns["D"][5]
+      ],
       lr_diagonal_2 = [
-      @board.columns["A"][1],
-      @board.columns["B"][2],
-      @board.columns["C"][3],
-      @board.columns["D"][4],
-      @board.columns["E"][5]
-    ]
+        @board.columns["A"][1],
+        @board.columns["B"][2],
+        @board.columns["C"][3],
+        @board.columns["D"][4],
+        @board.columns["E"][5]
+      ],
       lr_diagonal_3 = [
-      @board.columns["A"][0],
-      @board.columns["B"][1],
-      @board.columns["C"][2],
-      @board.columns["D"][3],
-      @board.columns["E"][4],
-      @board.columns["F"][5]
-
-    ]
+        @board.columns["A"][0],
+        @board.columns["B"][1],
+        @board.columns["C"][2],
+        @board.columns["D"][3],
+        @board.columns["E"][4],
+        @board.columns["F"][5]
+      ],
       lr_diagonal_4 = [
-      @board.columns["B"][0],
-      @board.columns["C"][1],
-      @board.columns["D"][2],
-      @board.columns["E"][3],
-      @board.columns["F"][4],
-      @board.columns["G"][5]
-    ]
+        @board.columns["B"][0],
+        @board.columns["C"][1],
+        @board.columns["D"][2],
+        @board.columns["E"][3],
+        @board.columns["F"][4],
+        @board.columns["G"][5]
+      ],
       lr_diagonal_5 = [
-      @board.columns["C"][0],
-      @board.columns["D"][1],
-      @board.columns["E"][2],
-      @board.columns["F"][3],
-      @board.columns["G"][4]
-
-    ]
+        @board.columns["C"][0],
+        @board.columns["D"][1],
+        @board.columns["E"][2],
+        @board.columns["F"][3],
+        @board.columns["G"][4]
+      ],
       lr_diagonal_6 = [
-      @board.columns["D"][0],
-      @board.columns["E"][1],
-      @board.columns["F"][2],
-      @board.columns["G"][3]
-    ]
+        @board.columns["D"][0],
+        @board.columns["E"][1],
+        @board.columns["F"][2],
+        @board.columns["G"][3]
       ]
+    ]
 
-    lr_diagonals.each do |diagonal_num|
-      if diagonal_num.join.include? "XXXX"
+    lr_diagonals.each do |lr_diagonal_num|
+      if lr_diagonal_num.join.include? "XXXX"
         @winner = true
         p "CONGRATS, YOU HAVE WON"
-      elsif diagonal_num.join.include? "OOOO"
+      elsif lr_diagonal_num.join.include? "OOOO"
         @winner = true
         p "YOU'VE BEEN BEATEN"
       end
@@ -345,56 +343,54 @@ class Turn
 
     rl_diagonals = [
       rl_diagonal_1 = [
-      @board.columns["A"][3],
-      @board.columns["B"][2],
-      @board.columns["C"][1],
-      @board.columns["D"][0]
-    ]
+        @board.columns["A"][3],
+        @board.columns["B"][2],
+        @board.columns["C"][1],
+        @board.columns["D"][0]
+      ],
       rl_diagonal_2 = [
-      @board.columns["A"][4],
-      @board.columns["B"][3],
-      @board.columns["C"][2],
-      @board.columns["D"][1],
-      @board.columns["E"][0]
-    ]
+        @board.columns["A"][4],
+        @board.columns["B"][3],
+        @board.columns["C"][2],
+        @board.columns["D"][1],
+        @board.columns["E"][0]
+      ],
       rl_diagonal_3 = [
-      @board.columns["A"][5],
-      @board.columns["B"][4],
-      @board.columns["C"][3],
-      @board.columns["D"][2],
-      @board.columns["E"][1],
-      @board.columns["F"][0]
-
-    ]
+        @board.columns["A"][5],
+        @board.columns["B"][4],
+        @board.columns["C"][3],
+        @board.columns["D"][2],
+        @board.columns["E"][1],
+        @board.columns["F"][0]
+      ],
       rl_diagonal_4 = [
-      @board.columns["B"][5],
-      @board.columns["C"][4],
-      @board.columns["D"][3],
-      @board.columns["E"][2],
-      @board.columns["F"][1],
-      @board.columns["G"][0]
-    ]
+        @board.columns["B"][5],
+        @board.columns["C"][4],
+        @board.columns["D"][3],
+        @board.columns["E"][2],
+        @board.columns["F"][1],
+        @board.columns["G"][0]
+      ],
       rl_diagonal_5 = [
-      @board.columns["C"][5],
-      @board.columns["D"][4],
-      @board.columns["E"][3],
-      @board.columns["F"][2],
-      @board.columns["G"][1]
-
-    ]
+        @board.columns["C"][5],
+        @board.columns["D"][4],
+        @board.columns["E"][3],
+        @board.columns["F"][2],
+        @board.columns["G"][1]
+      ],
       rl_diagonal_6 = [
-      @board.columns["D"][5],
-      @board.columns["E"][4],
-      @board.columns["F"][3],
-      @board.columns["G"][2]
-    ]
+        @board.columns["D"][5],
+        @board.columns["E"][4],
+        @board.columns["F"][3],
+        @board.columns["G"][2]
       ]
+    ]
 
-    rl_diagonals.each do |diagonal_num|
-      if diagonal_num.join.include? "XXXX"
+    rl_diagonals.each do |rl_diagonal_num|
+      if rl_diagonal_num.join.include? "XXXX"
         @winner = true
         p "CONGRATS, YOU HAVE WON"
-      elsif diagonal_num.join.include? "OOOO"
+      elsif rl_diagonal_num.join.include? "OOOO"
         @winner = true
         p "YOU'VE BEEN BEATEN"
       end
