@@ -1,7 +1,7 @@
 require "pry"
 
 class Board
-  attr_reader :columns, :rows
+  attr_reader :columns, :rows, :render
   def initialize
     @columns = {
       "A" => [".", ".", ".", ".", ".", "."],

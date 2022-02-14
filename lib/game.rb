@@ -1,6 +1,7 @@
 class Game
-  def initialize(turn)
+  def initialize(turn, board)
     @turn = turn
+    @board = board
   end
 
   # def play_game
@@ -24,10 +25,12 @@ class Game
   def player_turn
     @turn.prompt
     @turn.place_piece
+    @turn.check_endgame
   end
 
   def computer_turn
     @turn.computer
+    @turn.check_endgame
   end
 
   def start_game
@@ -37,22 +40,28 @@ class Game
 
     menu_selection = gets.chomp
     if menu_selection == "p"
-      board = Board.new
-      turn = Turn.new(board)
-      game = Game.new(turn)
-
-      board.render
+      @board.render
     end
   end
 
   def play_game
     start_game
+<<<<<<< HEAD
     player_turn
     @turn.check_endgame
     if @endgame == true
       start_game
+=======
+    loop do
+      player_turn
+      if @endgame == true
+        break
+      end
+>>>>>>> 8baccca8de52dc0ce9240120ae1030a7c0575018
       computer_turn
-      @turn.check_endgame
+      if @endgame == true
+        break
+      end
     end
   end
 end
